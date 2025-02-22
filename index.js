@@ -22,6 +22,7 @@ import updateExamTopicProgressHandler from "./api/questionsCollection/schema/upd
 import removeTopicProgressHandler from "./api/questionsCollection/schema/removeTopicProgressHandler.js";
 import removeExamTopicProgressHandler from "./api/questionsCollection/schema/removeExamTopicProgressHandler.js";
 import authenticateDevice from "./api/questionsCollection/schema/login.js";
+import serverless from "serverless-http";
 
 const app = express();
 const port = 8000;
@@ -123,3 +124,5 @@ process.on("SIGINT", async () => {
   console.log("MongoDB connection closed.");
   process.exit(0);
 });
+
+export const handler = serverless(app);
